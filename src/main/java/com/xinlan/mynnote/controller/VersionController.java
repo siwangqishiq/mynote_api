@@ -13,7 +13,7 @@ public class VersionController {
     @Autowired
     private VersionService versionService;
 
-    @RequestMapping(value = "/api/version", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/version", method = {RequestMethod.GET,RequestMethod.POST})
     public Result<Version> findNewestVersion(int osType) throws Exception {
         Version version = versionService.getVersion(osType);
         Result<Version> result = new Result<Version>();
